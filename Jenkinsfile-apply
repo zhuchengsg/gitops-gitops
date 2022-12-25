@@ -7,18 +7,18 @@ pipeline {
   }
   agent {
       node {
-      	label 'nodejs'
+        label 'nodejs'
       }
   }
   stages {
     stage ('Validate configuration resources') {
       steps {
-      sh 'oc apply --dry-run --validate -k config'
+      sh 'oc apply  --dry-run=client --validate=true -k config'
       }
     }
     stage ('Apply resources') {
       when {
-      	branch 'master'
+        branch 'master'
       }
       steps {
       sh 'oc apply -k config'
@@ -27,7 +27,7 @@ pipeline {
     }
     stage ('Verify test user') {
       when {
-      	branch 'master'
+        branch 'master'
       }
       steps {
       sh 'oc login -u testuser -p redhat123 --insecure-skip-tls-verify https://kubernetes.default.svc:443'
