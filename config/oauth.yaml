@@ -4,6 +4,7 @@ metadata:
   annotations:
     release.openshift.io/create-only: "true"
   name: cluster
+  resourceVersion: "1011513"
 spec:
   identityProviders:
   - htpasswd:
