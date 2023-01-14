@@ -2,7 +2,7 @@ apiVersion: config.openshift.io/v1
 kind: OAuth
 metadata:
   name: cluster
-  resourceVersion: "1024046"
+  resourceVersion: "1026906"
 spec:
   identityProviders:
   - htpasswd:
